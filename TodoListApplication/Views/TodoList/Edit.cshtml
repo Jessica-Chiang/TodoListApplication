@@ -1,0 +1,46 @@
+﻿@model TodoListApplication.Models.TodoListTable
+
+@{
+    ViewBag.Title = "修改留言";
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@using (Html.BeginForm())
+{
+    <h3>修改留言</h3>
+     <table>
+        <tr>
+            <td>
+                @Html.LabelFor( model => model.Content )
+            </td>
+            <td>
+                @Html.TextBoxFor( model => model.Content )
+                @Html.ValidationMessageFor(model => model.Content)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor( model => model.NeedTime )
+            </td>
+            <td>
+                @Html.TextBoxFor( model => model.NeedTime )
+                 @Html.ValidationMessageFor(model => model.NeedTime)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor( model => model.DoneTime )
+            </td>
+            <td>
+                @Html.TextBoxFor( model => model.DoneTime )
+                @Html.ValidationMessageFor(model => model.DoneTime)
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="修改項目"/>
+}
+<a href ="@Url.Action("Cancel")">
+      <input type="submit" value="取消" /></a>
